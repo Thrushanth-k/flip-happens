@@ -1,0 +1,1530 @@
+@import url(
+    'https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700;800;900&display=swap'
+);
+
+
+/* =========================================
+   RESET
+========================================= */
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+
+/* =========================================
+   BODY
+========================================= */
+
+body {
+    min-height: 100vh;
+
+    display: flex;
+
+    justify-content: center;
+
+    align-items: center;
+
+    font-family: 'Poppins', sans-serif;
+
+    color: white;
+
+    background:
+        radial-gradient(
+            circle at 15% 10%,
+            rgba(108, 92, 231, 0.35),
+            transparent 32%
+        ),
+
+        radial-gradient(
+            circle at 85% 90%,
+            rgba(0, 200, 255, 0.15),
+            transparent 30%
+        ),
+
+        linear-gradient(
+            135deg,
+            #080914,
+            #12152d,
+            #080914
+        );
+
+    overflow-y: auto;
+}
+
+
+/* =========================================
+   GAME CARD
+========================================= */
+
+.game {
+    width: min(92%, 460px);
+
+    padding: 32px 25px 24px;
+
+    text-align: center;
+
+    border-radius: 28px;
+
+    background:
+        rgba(255, 255, 255, 0.07);
+
+    border:
+        1px solid
+        rgba(255, 255, 255, 0.13);
+
+    backdrop-filter: blur(18px);
+
+    box-shadow:
+        0 30px 80px
+        rgba(0, 0, 0, 0.45);
+
+    position: relative;
+
+    z-index: 10;
+}
+
+
+/* =========================================
+   SMALL RESET BUTTON
+========================================= */
+
+.reset-btn {
+    position: absolute;
+
+    top: 18px;
+
+    left: 18px;
+
+    width: 38px;
+
+    height: 38px;
+
+    padding: 0;
+
+    display: flex;
+
+    justify-content: center;
+
+    align-items: center;
+
+    border:
+        1px solid
+        rgba(255, 255, 255, 0.14);
+
+    border-radius: 50%;
+
+    color: #bfc2d1;
+
+    background:
+        rgba(255, 255, 255, 0.07);
+
+    font-family: 'Poppins', sans-serif;
+
+    font-size: 20px;
+
+    font-weight: 700;
+
+    cursor: pointer;
+
+    transition:
+        transform 0.25s ease,
+        background 0.25s ease,
+        color 0.25s ease;
+}
+
+.reset-btn:hover {
+    color: white;
+
+    background:
+        rgba(139, 124, 255, 0.25);
+
+    transform:
+        rotate(-90deg)
+        scale(1.08);
+}
+
+.reset-btn:active {
+    transform:
+        rotate(-90deg)
+        scale(0.92);
+}
+
+.reset-btn:disabled {
+    opacity: 0.5;
+
+    cursor: not-allowed;
+
+    transform: none;
+}
+
+
+/* =========================================
+   TITLE
+========================================= */
+
+h1 {
+    font-size: 38px;
+
+    line-height: 1.1;
+
+    font-weight: 800;
+
+    letter-spacing: -1.5px;
+
+    margin-bottom: 6px;
+}
+
+.subtitle {
+    color: #aeb3c7;
+
+    font-size: 14px;
+
+    margin-bottom: 15px;
+}
+
+
+/* =========================================
+   PLAYER BUTTON
+========================================= */
+
+.player-toggle {
+    border: none;
+
+    padding: 10px 18px;
+
+    border-radius: 12px;
+
+    color: white;
+
+    background:
+        rgba(255, 255, 255, 0.09);
+
+    font-family: 'Poppins', sans-serif;
+
+    font-size: 13px;
+
+    font-weight: 600;
+
+    cursor: pointer;
+
+    transition: 0.2s;
+}
+
+.player-toggle:hover {
+    transform: translateY(-2px);
+
+    background:
+        rgba(255, 255, 255, 0.15);
+}
+
+.player-toggle:disabled {
+    opacity: 0.5;
+
+    cursor: not-allowed;
+
+    transform: none;
+}
+
+
+/* =========================================
+   PLAYER INPUTS
+========================================= */
+
+.player-section {
+    display: flex;
+
+    gap: 10px;
+
+    margin-top: 11px;
+}
+
+.player-section input {
+    width: 50%;
+
+    padding: 11px;
+
+    border:
+        1px solid
+        rgba(255, 255, 255, 0.15);
+
+    border-radius: 11px;
+
+    outline: none;
+
+    background:
+        rgba(0, 0, 0, 0.25);
+
+    color: white;
+
+    font-family: 'Poppins', sans-serif;
+
+    font-size: 13px;
+
+    min-width: 0;
+}
+
+.player-section input::placeholder {
+    color: #85899d;
+}
+
+.player-section input:focus {
+    border-color: #8073ff;
+}
+
+.hidden {
+    display: none !important;
+}
+
+
+/* =========================================
+   COIN AREA
+========================================= */
+
+.coin-area {
+    height: 215px;
+
+    display: flex;
+
+    justify-content: center;
+
+    align-items: center;
+
+    position: relative;
+}
+
+.coin-stage {
+    width: 165px;
+
+    height: 165px;
+
+    display: flex;
+
+    justify-content: center;
+
+    align-items: center;
+
+    perspective: 1200px;
+}
+
+
+/* =========================================
+   COIN
+========================================= */
+
+.coin {
+    width: 135px;
+
+    height: 135px;
+
+    border-radius: 50%;
+
+    display: flex;
+
+    justify-content: center;
+
+    align-items: center;
+
+    flex-direction: column;
+
+    position: relative;
+
+    background:
+        radial-gradient(
+            circle at 30% 23%,
+            #fff5a8,
+            #f7d75e 17%,
+            #e7b332 43%,
+            #c8890e 70%,
+            #925b05
+        );
+
+    border: 8px solid #d99a18;
+
+    box-shadow:
+        inset 0 0 0 3px
+        rgba(255, 255, 255, 0.28),
+
+        inset 8px 8px 20px
+        rgba(255, 255, 255, 0.20),
+
+        inset -12px -14px 25px
+        rgba(75, 43, 0, 0.35),
+
+        0 25px 20px
+        rgba(0, 0, 0, 0.30);
+
+    transform-style: preserve-3d;
+
+    will-change: transform;
+}
+
+.coin::before {
+    content: "";
+
+    position: absolute;
+
+    inset: 10px;
+
+    border-radius: 50%;
+
+    border:
+        3px solid
+        rgba(112, 72, 0, 0.42);
+
+    pointer-events: none;
+}
+
+
+/* =========================================
+   COIN SYMBOL
+========================================= */
+
+.coin-symbol {
+    width: 62px;
+
+    height: 62px;
+
+    display: flex;
+
+    justify-content: center;
+
+    align-items: center;
+
+    border-radius: 50%;
+
+    border:
+        3px solid
+        rgba(105, 67, 0, 0.48);
+
+    color: #704700;
+
+    font-size: 38px;
+
+    font-weight: 900;
+
+    position: relative;
+
+    z-index: 2;
+}
+
+
+/* =========================================
+   COIN TEXT
+========================================= */
+
+.coin-text {
+    margin-top: 6px;
+
+    font-size: 8px;
+
+    letter-spacing: 2px;
+
+    font-weight: 800;
+
+    color:
+        rgba(91, 56, 0, 0.85);
+}
+
+
+/* =========================================
+   COIN SHADOW
+========================================= */
+
+.coin-shadow {
+    position: absolute;
+
+    bottom: 22px;
+
+    width: 110px;
+
+    height: 20px;
+
+    border-radius: 50%;
+
+    background:
+        rgba(0, 0, 0, 0.35);
+
+    filter: blur(10px);
+}
+
+
+/* =========================================
+   IDLE BOUNCE
+========================================= */
+
+.coin:not(.flipping):not(.land):not(.loser) {
+    animation:
+        smoothIdle
+        2.4s
+        ease-in-out
+        infinite;
+}
+
+@keyframes smoothIdle {
+
+    0% {
+        transform:
+            translateY(0);
+    }
+
+    50% {
+        transform:
+            translateY(-18px);
+    }
+
+    100% {
+        transform:
+            translateY(0);
+    }
+}
+
+
+/* =========================================
+   FLIP
+========================================= */
+
+.coin.flipping {
+    animation:
+        coinFlip
+        2.6s
+        cubic-bezier(.16, .85, .25, 1)
+        forwards;
+}
+
+@keyframes coinFlip {
+
+    0% {
+        transform:
+            translateY(0)
+            scale(1)
+            rotateY(0deg);
+    }
+
+    10% {
+        transform:
+            translateY(-20px)
+            scale(1.02)
+            rotateY(540deg);
+    }
+
+    25% {
+        transform:
+            translateY(-85px)
+            scale(1.05)
+            rotateY(1080deg);
+    }
+
+    42% {
+        transform:
+            translateY(-120px)
+            scale(1.08)
+            rotateY(1800deg);
+    }
+
+    58% {
+        transform:
+            translateY(-110px)
+            scale(1.07)
+            rotateY(2520deg);
+    }
+
+    72% {
+        transform:
+            translateY(-75px)
+            scale(1.05)
+            rotateY(3240deg);
+    }
+
+    84% {
+        transform:
+            translateY(-38px)
+            scale(1.03)
+            rotateY(3780deg);
+    }
+
+    94% {
+        transform:
+            translateY(-8px)
+            scale(1.01)
+            rotateY(4140deg);
+    }
+
+    100% {
+        transform:
+            translateY(0)
+            scale(1)
+            rotateY(4320deg);
+    }
+}
+
+
+/* =========================================
+   LANDING
+========================================= */
+
+.coin.land {
+    animation:
+        coinLand
+        0.35s
+        ease-out;
+}
+
+@keyframes coinLand {
+
+    0% {
+        transform:
+            translateY(0)
+            scale(1);
+    }
+
+    30% {
+        transform:
+            translateY(4px)
+            scale(0.95);
+    }
+
+    55% {
+        transform:
+            translateY(-3px)
+            scale(1.03);
+    }
+
+    75% {
+        transform:
+            translateY(1px)
+            scale(0.99);
+    }
+
+    100% {
+        transform:
+            translateY(0)
+            scale(1);
+    }
+}
+
+
+/* =========================================
+   LOSER ANIMATION
+========================================= */
+
+.coin.loser {
+    animation:
+        sadCoin
+        0.9s
+        ease-in-out;
+}
+
+@keyframes sadCoin {
+
+    0% {
+        transform:
+            translateY(0)
+            rotateZ(0deg)
+            scale(1);
+    }
+
+    15% {
+        transform:
+            translateY(2px)
+            rotateZ(-5deg)
+            scale(0.98);
+    }
+
+    30% {
+        transform:
+            translateY(5px)
+            rotateZ(5deg)
+            scale(0.96);
+    }
+
+    45% {
+        transform:
+            translateY(3px)
+            rotateZ(-4deg)
+            scale(0.97);
+    }
+
+    60% {
+        transform:
+            translateY(5px)
+            rotateZ(4deg)
+            scale(0.96);
+    }
+
+    75% {
+        transform:
+            translateY(2px)
+            rotateZ(-2deg)
+            scale(0.98);
+    }
+
+    100% {
+        transform:
+            translateY(0)
+            rotateZ(0deg)
+            scale(1);
+    }
+}
+
+
+/* =========================================
+   HEADS / TAILS
+========================================= */
+
+.choices {
+    display: flex;
+
+    gap: 10px;
+
+    margin-bottom: 11px;
+}
+
+.choice {
+    flex: 1;
+
+    padding: 13px;
+
+    border: none;
+
+    border-radius: 13px;
+
+    color: #aeb1c2;
+
+    background:
+        rgba(255, 255, 255, 0.08);
+
+    font-family: 'Poppins', sans-serif;
+
+    font-size: 13px;
+
+    font-weight: 700;
+
+    cursor: pointer;
+
+    transition: 0.2s;
+}
+
+.choice.active {
+    color: white;
+
+    background:
+        linear-gradient(
+            135deg,
+            #8b7cff,
+            #6253df
+        );
+
+    box-shadow:
+        0 8px 25px
+        rgba(98, 83, 223, 0.3);
+}
+
+.choice:hover {
+    transform:
+        translateY(-2px);
+}
+
+.choice:disabled {
+    opacity: 0.5;
+
+    cursor: not-allowed;
+
+    transform: none;
+}
+
+
+/* =========================================
+   FLIP BUTTON
+========================================= */
+
+.flip-btn {
+    width: 100%;
+
+    padding: 15px;
+
+    border: none;
+
+    border-radius: 14px;
+
+    color: white;
+
+    background:
+        linear-gradient(
+            135deg,
+            #8d7dff,
+            #5c4de0
+        );
+
+    font-family: 'Poppins', sans-serif;
+
+    font-size: 15px;
+
+    font-weight: 800;
+
+    cursor: pointer;
+
+    box-shadow:
+        0 12px 30px
+        rgba(92, 77, 224, 0.3);
+
+    transition: 0.2s;
+}
+
+.flip-btn:hover {
+    transform:
+        translateY(-2px);
+}
+
+.flip-btn:disabled {
+    opacity: 0.55;
+
+    cursor: not-allowed;
+}
+
+
+/* =========================================
+   SOUND
+========================================= */
+
+.sound-btn {
+    margin-top: 9px;
+
+    padding:
+        8px 14px;
+
+    border:
+        1px solid
+        rgba(255, 255, 255, 0.1);
+
+    border-radius: 10px;
+
+    color: #b9bdd0;
+
+    background:
+        rgba(255, 255, 255, 0.05);
+
+    font-family: 'Poppins', sans-serif;
+
+    font-size: 11px;
+
+    font-weight: 600;
+
+    cursor: pointer;
+}
+
+
+/* =========================================
+   RESULT
+========================================= */
+
+.result {
+    min-height: 45px;
+
+    display: flex;
+
+    justify-content: center;
+
+    align-items: center;
+
+    flex-direction: column;
+
+    margin-top: 5px;
+
+    padding: 0 5px;
+
+    font-size: 21px;
+
+    font-weight: 800;
+
+    line-height: 1.2;
+}
+
+.result small {
+    display: block;
+
+    margin-top: 3px;
+
+    font-size: 12px;
+
+    font-weight: 500;
+
+    color: #aeb3c7;
+}
+
+.result.winner {
+    animation:
+        winnerPop
+        0.7s
+        cubic-bezier(.17,.89,.32,1.49);
+}
+
+.result.loser-result {
+    animation:
+        loserResult
+        0.7s
+        ease-out;
+}
+
+@keyframes winnerPop {
+
+    0% {
+        transform: scale(0.4);
+
+        opacity: 0;
+    }
+
+    70% {
+        transform: scale(1.15);
+    }
+
+    100% {
+        transform: scale(1);
+
+        opacity: 1;
+    }
+}
+
+@keyframes loserResult {
+
+    0% {
+        opacity: 0;
+
+        transform:
+            translateY(-8px)
+            scale(0.9);
+    }
+
+    60% {
+        transform:
+            translateY(2px)
+            scale(1.03);
+    }
+
+    100% {
+        opacity: 1;
+
+        transform:
+            translateY(0)
+            scale(1);
+    }
+}
+
+
+/* =========================================
+   SCORE
+========================================= */
+
+.score {
+    display: flex;
+
+    justify-content: space-around;
+
+    padding-top: 10px;
+
+    margin-top: 3px;
+
+    border-top:
+        1px solid
+        rgba(255, 255, 255, 0.1);
+}
+
+.score-item {
+    display: flex;
+
+    flex-direction: column;
+
+    gap: 3px;
+}
+
+.score-item strong {
+    font-size: 21px;
+
+    font-weight: 800;
+}
+
+.score-item span {
+    font-size: 10px;
+
+    color: #9296aa;
+}
+
+
+/* =========================================
+   WINNER OVERLAY
+========================================= */
+
+.winner-overlay {
+    position: fixed;
+
+    inset: 0;
+
+    z-index: 200;
+
+    display: flex;
+
+    justify-content: center;
+
+    align-items: center;
+
+    padding: 20px;
+
+    background:
+        rgba(4, 5, 15, 0.48);
+
+    backdrop-filter:
+        blur(0px);
+
+    opacity: 0;
+
+    visibility: hidden;
+
+    transition:
+        opacity 0.35s ease,
+        backdrop-filter 0.45s ease,
+        visibility 0.35s;
+}
+
+.winner-overlay.show {
+    opacity: 1;
+
+    visibility: visible;
+
+    backdrop-filter:
+        blur(14px);
+}
+
+
+/* =========================================
+   WINNER POPUP
+========================================= */
+
+.winner-popup {
+    width: min(88%, 390px);
+
+    padding:
+        32px 24px 25px;
+
+    text-align: center;
+
+    border-radius: 28px;
+
+    background:
+        linear-gradient(
+            145deg,
+            rgba(255,255,255,.16),
+            rgba(255,255,255,.07)
+        );
+
+    border:
+        1px solid
+        rgba(255,255,255,.22);
+
+    box-shadow:
+        0 35px 100px
+        rgba(0,0,0,.6);
+
+    backdrop-filter:
+        blur(25px);
+
+    transform:
+        translateY(35px)
+        scale(.7);
+
+    opacity: 0;
+
+    transition:
+        transform .55s
+        cubic-bezier(.17,.89,.32,1.35),
+        opacity .35s;
+}
+
+.winner-overlay.show .winner-popup {
+    transform:
+        translateY(0)
+        scale(1);
+
+    opacity: 1;
+}
+
+.trophy {
+    font-size: 55px;
+}
+
+.winner-name {
+    margin-top: 6px;
+
+    font-size:
+        clamp(30px,8vw,44px);
+
+    font-weight: 900;
+
+    letter-spacing: -1px;
+
+    background:
+        linear-gradient(
+            135deg,
+            #ffffff,
+            #c9c1ff,
+            #ffffff
+        );
+
+    -webkit-background-clip: text;
+
+    background-clip: text;
+
+    color: transparent;
+
+    word-break: break-word;
+}
+
+.winner-text {
+    margin-top: 2px;
+
+    font-size: 18px;
+
+    font-weight: 800;
+
+    letter-spacing: 1px;
+}
+
+.winner-coin {
+    margin-top: 12px;
+
+    font-size: 30px;
+
+    animation:
+        winnerCoin
+        1.5s
+        ease-in-out
+        infinite;
+}
+
+@keyframes winnerCoin {
+
+    0%,
+    100% {
+        transform:
+            translateY(0)
+            rotate(-5deg);
+    }
+
+    50% {
+        transform:
+            translateY(-8px)
+            rotate(5deg);
+    }
+}
+
+.close-winner {
+    margin-top: 14px;
+
+    padding:
+        10px 24px;
+
+    border: none;
+
+    border-radius: 11px;
+
+    color: white;
+
+    background:
+        rgba(255,255,255,.12);
+
+    border:
+        1px solid
+        rgba(255,255,255,.15);
+
+    font-family: 'Poppins', sans-serif;
+
+    font-size: 12px;
+
+    font-weight: 700;
+
+    cursor: pointer;
+}
+
+.close-winner:hover {
+    background:
+        rgba(255,255,255,.2);
+
+    transform:
+        translateY(-2px);
+}
+
+
+/* =========================================
+   CELEBRATION
+========================================= */
+
+#celebration {
+    position: fixed;
+
+    inset: 0;
+
+    pointer-events: none;
+
+    overflow: hidden;
+
+    z-index: 210;
+}
+
+.confetti {
+    position: absolute;
+
+    top: -30px;
+
+    border-radius: 2px;
+
+    animation:
+        confettiFall
+        var(--fall-time)
+        linear
+        forwards;
+}
+
+@keyframes confettiFall {
+
+    0% {
+        transform:
+            translateY(-30px)
+            rotate(0deg);
+
+        opacity: 1;
+    }
+
+    100% {
+        transform:
+            translateY(110vh)
+            rotate(720deg);
+
+        opacity: 0;
+    }
+}
+
+
+/* =========================================
+   POPPER PAPERS
+========================================= */
+
+.popper-paper {
+    position: absolute;
+
+    width: 11px;
+
+    height: 20px;
+
+    border-radius: 3px;
+
+    animation:
+        popperFly
+        2s
+        cubic-bezier(.15,.8,.25,1)
+        forwards;
+}
+
+@keyframes popperFly {
+
+    0% {
+        transform:
+            translate(
+                var(--start-x),
+                var(--start-y)
+            )
+            rotate(0deg)
+            scale(.4);
+
+        opacity: 1;
+    }
+
+    45% {
+        transform:
+            translate(
+                var(--mid-x),
+                var(--mid-y)
+            )
+            rotate(360deg)
+            scale(1);
+    }
+
+    100% {
+        transform:
+            translate(
+                var(--end-x),
+                var(--end-y)
+            )
+            rotate(900deg)
+            scale(.6);
+
+        opacity: 0;
+    }
+}
+
+
+/* =========================================
+   SPARKS
+========================================= */
+
+.spark {
+    position: absolute;
+
+    width: 7px;
+
+    height: 7px;
+
+    border-radius: 50%;
+
+    background: #ffd95a;
+
+    animation:
+        sparkBurst
+        .9s
+        ease-out
+        forwards;
+}
+
+@keyframes sparkBurst {
+
+    0% {
+        transform:
+            translate(0,0)
+            scale(1);
+
+        opacity: 1;
+    }
+
+    100% {
+        transform:
+            translate(
+                var(--x),
+                var(--y)
+            )
+            scale(0);
+
+        opacity: 0;
+    }
+}
+
+
+/* =========================================
+   LAPTOP HEIGHT
+========================================= */
+
+@media (max-height: 800px) {
+
+    .game {
+        padding-top: 25px;
+
+        padding-bottom: 20px;
+    }
+
+    h1 {
+        font-size: 36px;
+    }
+
+    .subtitle {
+        margin-bottom: 14px;
+    }
+
+    .coin-area {
+        height: 215px;
+    }
+
+    .coin-stage {
+        width: 165px;
+
+        height: 165px;
+    }
+
+    .coin {
+        width: 135px;
+
+        height: 135px;
+    }
+
+    .coin-symbol {
+        width: 62px;
+
+        height: 62px;
+
+        font-size: 38px;
+    }
+}
+
+
+/* =========================================
+   MOBILE
+========================================= */
+
+@media (max-width: 500px) {
+
+    body {
+        align-items: flex-start;
+
+        padding: 12px 0;
+    }
+
+    .game {
+        width:
+            calc(100% - 20px);
+
+        padding:
+            25px 15px 20px;
+    }
+
+    h1 {
+        font-size: 30px;
+    }
+
+    .subtitle {
+        font-size: 12px;
+    }
+
+    .player-section {
+        gap: 8px;
+    }
+
+    .player-section input {
+        padding:
+            10px 8px;
+
+        font-size: 12px;
+    }
+
+    .coin-area {
+        height: 210px;
+    }
+
+    .coin-stage {
+        width: 155px;
+
+        height: 155px;
+    }
+
+    .coin {
+        width: 120px;
+
+        height: 120px;
+
+        border-width: 7px;
+    }
+
+    .coin-symbol {
+        width: 54px;
+
+        height: 54px;
+
+        font-size: 32px;
+    }
+
+    .coin-text {
+        font-size: 7px;
+    }
+
+    .choices {
+        gap: 8px;
+    }
+
+    .choice {
+        padding:
+            13px 8px;
+
+        font-size: 12px;
+    }
+
+    .flip-btn {
+        padding: 14px;
+
+        font-size: 14px;
+    }
+
+    .result {
+        font-size: 19px;
+    }
+
+    .score-item strong {
+        font-size: 19px;
+    }
+
+
+    /* SMALL RESET ON MOBILE */
+
+    .reset-btn {
+        top: 14px;
+
+        left: 14px;
+
+        width: 34px;
+
+        height: 34px;
+
+        font-size: 18px;
+    }
+
+    .winner-popup {
+        width: 92%;
+
+        padding:
+            27px 17px 22px;
+    }
+
+    .winner-name {
+        font-size: 32px;
+    }
+
+    .winner-text {
+        font-size: 16px;
+    }
+}
+
+
+/* =========================================
+   SMALL PHONES
+========================================= */
+
+@media (max-width: 360px) {
+
+    .game {
+        width:
+            calc(100% - 14px);
+
+        padding:
+            22px 12px 17px;
+    }
+
+    h1 {
+        font-size: 27px;
+    }
+
+    .coin-area {
+        height: 200px;
+    }
+
+    .coin {
+        width: 110px;
+
+        height: 110px;
+    }
+
+    .coin-symbol {
+        width: 49px;
+
+        height: 49px;
+
+        font-size: 29px;
+    }
+
+    .reset-btn {
+        width: 32px;
+
+        height: 32px;
+
+        top: 12px;
+
+        left: 12px;
+
+        font-size: 17px;
+    }
+}

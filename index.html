@@ -1,0 +1,210 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>Flip Happens</title>
+
+    <link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+
+    <!-- Celebration -->
+    <div id="celebration"></div>
+
+
+    <!-- Winner Popup -->
+    <div id="winnerOverlay" class="winner-overlay">
+
+        <div class="winner-popup">
+
+            <div class="trophy">🏆</div>
+
+            <div id="winnerName" class="winner-name">
+                Player
+            </div>
+
+            <div class="winner-text">
+                WINS THE TOSS!
+            </div>
+
+            <div class="winner-coin">
+                🪙
+            </div>
+
+            <button
+                id="closeWinner"
+                class="close-winner"
+            >
+                CONTINUE
+            </button>
+
+        </div>
+
+    </div>
+
+
+    <!-- Main Game -->
+    <main class="game">
+
+        <!-- Small Reset Button -->
+        <button
+            id="resetBtn"
+            class="reset-btn"
+            title="Reset Game"
+            aria-label="Reset Game"
+        >
+            ↻
+        </button>
+
+
+        <h1>🪙 Flip Happens</h1>
+
+        <p class="subtitle">
+            Call your side. Blame the coin.
+        </p>
+
+
+        <!-- Player Toggle -->
+        <button
+            id="playerToggle"
+            class="player-toggle"
+        >
+            👥 Add 2 Players
+        </button>
+
+
+        <!-- Player Names -->
+        <div
+            id="playerSection"
+            class="player-section hidden"
+        >
+
+            <input
+                id="player1"
+                type="text"
+                maxlength="20"
+                placeholder="Player 1 name"
+            >
+
+            <input
+                id="player2"
+                type="text"
+                maxlength="20"
+                placeholder="Player 2 name"
+            >
+
+        </div>
+
+
+        <!-- Coin -->
+        <section class="coin-area">
+
+            <div class="coin-shadow"></div>
+
+            <div class="coin-stage">
+
+                <div
+                    id="coin"
+                    class="coin"
+                >
+
+                    <div
+                        id="coinSymbol"
+                        class="coin-symbol"
+                    >
+                        H
+                    </div>
+
+                    <div
+                        id="coinText"
+                        class="coin-text"
+                    >
+                        HEADS
+                    </div>
+
+                </div>
+
+            </div>
+
+        </section>
+
+
+        <!-- Heads / Tails -->
+        <div class="choices">
+
+            <button
+                id="headsBtn"
+                class="choice active"
+            >
+                HEADS
+            </button>
+
+            <button
+                id="tailsBtn"
+                class="choice"
+            >
+                TAILS
+            </button>
+
+        </div>
+
+
+        <!-- Flip -->
+        <button
+            id="flipBtn"
+            class="flip-btn"
+        >
+            🪙 FLIP IT
+        </button>
+
+
+        <!-- Sound -->
+        <button
+            id="soundBtn"
+            class="sound-btn"
+        >
+            🔊 Sound On
+        </button>
+
+
+        <!-- Result -->
+        <div
+            id="result"
+            class="result"
+        >
+            Choose Heads or Tails
+        </div>
+
+
+        <!-- Score -->
+        <div class="score">
+
+            <div class="score-item">
+                <strong id="wins">0</strong>
+                <span>Wins</span>
+            </div>
+
+            <div class="score-item">
+                <strong id="streak">0</strong>
+                <span>Streak</span>
+            </div>
+
+            <div class="score-item">
+                <strong id="flips">0</strong>
+                <span>Flips</span>
+            </div>
+
+        </div>
+
+    </main>
+
+
+    <script src="script.js"></script>
+
+</body>
+
+</html>
